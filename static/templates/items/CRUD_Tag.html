@@ -1,0 +1,67 @@
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<div class="container text-center mt-5">
+
+            <div class="card col-5">
+
+                <form method="post">
+
+                    <div class="card-body">
+
+                    {% csrf_token %}
+                        <div class="h6 text-end form ">
+                            {{ form.as_p }}    
+                        </div>
+
+                    </div>
+
+                        <div class="card-footer">
+                            <button class="btn btn-success" type="submit">Listo</button>
+                        </div>
+                </form>
+            
+            
+            
+<!-- DELETE CATEGORIA -->
+
+
+    {% if objeto.temas %}
+             
+                 <div class="card-body">
+                    <a href="{% url 'delete_category' objeto.slug %}">            
+                        <button type="button" class="btn btn-danger">Delete <small>⛔</small></button>
+                    </a>
+                    
+                 </div>
+             </div>
+    {% endif %}
+
+<!-- DELETE TEMA -->
+
+    {% if objeto.category %}
+        <div class="card">
+            <div class="card-body">
+            <a href="{% url 'delete_tema' objeto.slug %}">            
+                <button type="button" class="btn btn-danger">Delete <small>⛔</small></button>
+            </a>
+            
+            </div>
+        </div>
+    {% endif %}
+
+
+<!-- DELETE ARTICLE -->
+
+    {% if objeto.tema %}
+        <div class="card">
+            <div class="card-body">
+            <a href="{% url 'delete_article' objeto.slug %}">            
+                <button type="button" class="btn btn-danger">Delete <small>⛔</small></button>
+            </a>
+            
+            </div>
+        </div>
+    {% endif %}
+
+
+</div>
