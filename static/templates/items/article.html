@@ -21,16 +21,7 @@
 
                     <div class="container-fluid p-1">
                       <strong class="h2 ">Temas</strong>
-                      <!-- ADD TEMA -->
-                      {% if user.is_authenticated %}
-                      <a href="{% url 'add_new_tema' %}">
-                        <button type="button" class="btn btn-secondary">
-                        +
-                        </button>
-                      </a>
 
-                      {% endif %}
-                      <!-- ADD TEMA -->
 
 
                     <!-- DESPLEGABLES -->
@@ -63,7 +54,7 @@
                       <!-- EDIT TEMA -->
                       {% if user.is_authenticated %}
                       <a href="{% url 'edit_tema' i.slug %}">
-                        <small>✍  --</small>
+                        <small>🖊</small>
                       </a>
                       {% endif %}
                       <!-- EDIT TEMA -->
@@ -84,7 +75,7 @@
                             <!-- EDIT ARTICLE -->
                             {% if user.is_authenticated %}
                             <a class="" href="{% url 'edit_article' art.slug %}">
-                              <small>✍  --</small>
+                              <small>🖊</small>
                             </a>
                             {% endif %}                      
                             <!-- EDIT ARTICLE -->          
@@ -123,6 +114,17 @@
         
                     <!-- FIN DESPLEGABLES -->
 
+
+                      <!-- ADD TEMA -->
+                      {% if user.is_authenticated %}
+                      <a href="{% url 'add_new_tema' %}">
+                        <button type="button" class="btn btn-secondary">
+                        +
+                        </button>
+                      </a>
+
+                      {% endif %}
+                      <!-- ADD TEMA -->
                 </nav>
 
             </aside>
@@ -138,9 +140,10 @@
             <section class="section" style="min-width: 50%;">
               
 
-                <h1>{{article.title}}</h1>
+                <h1 class="h1 text-center">{{ article.title }}</h1>
+                <br>
 
-                <p>{{article.body}}</p>
+                <p>{{ article.body|safe }}</p>
             </section>
           </div>
           

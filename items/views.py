@@ -5,12 +5,16 @@ from .models import Category, Tema, Article
 def categories(request, slug):
     category = get_object_or_404(Category, slug=slug)
     temas = category.temas.all().order_by('ordering')
+    
+
     #cosita = temas[0].articles #forma de sacarle los articulos
     #print('temas ========>', temas )
     #print('EXPERIMENTO', cosita)
     #for i in temas:
         #art = i.articles.all()
         #print('articulos ========>', art )
+
+
     ctx = {
         'category': category,
         'temas':temas,           
@@ -21,6 +25,15 @@ def article(request,category_slug, slug):
     article = get_object_or_404(Article, slug=slug)
     category = get_object_or_404(Category, slug=category_slug)
     temas = category.temas.all().order_by('ordering')
+    
+    #article.tema = tema actual
+    #temas[0].articles.all() todos los articulos del tema0
+    # article.tema.articles.all() todos los articulos del tema actual
+
+    # article.tema.articles.filter(title=article.title)
+
+    
+
     ctx = {
         'article':article,
         'category': category,
