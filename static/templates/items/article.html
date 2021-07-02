@@ -68,7 +68,7 @@
 
                           {% for art in i.articles.all %}
                           <li class="nav-item nav-link ">
-                            <a class="" href="{% url 'article' category.slug art.slug %}">{{ art }}</a>
+                            <a class="text- text-success" href="{% url 'article' category.slug art.slug %}"><small>{{art.ordering}}.-</small>{{ art.title }}</a>
                             
 
 
