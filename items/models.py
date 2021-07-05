@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 from django.utils.text import slugify
 
-from ckeditor.fields import RichTextField
+
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -37,7 +37,7 @@ class Article(models.Model):
     slug = models.SlugField(max_length=50,null=True, blank=True,default="name")
     ordering = models.IntegerField(null=True, blank=True,)
 
-    body = RichTextField(blank=True, null=True)
+    body = models.TextField(blank=True, null=True)
 
     def save(self, *args, **kwargs):    #luego agregamos esta funcion a la clase para que se agrege el titulo como slug
         self.slug = slugify(self.title)
