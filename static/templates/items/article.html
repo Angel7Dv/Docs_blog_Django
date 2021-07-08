@@ -138,9 +138,18 @@
     <!-- derecha -->
           <div class="col-10 p-0 m-0">
             <section class="section" style="min-width: 50%;">
-              
+              {% if user.is_authenticated %}
+              <p class="text-end d-inline">
 
-                <h1 class="h1 text-center">{{ article.title }}</h1>
+              <a  href="{% url 'edit_article' article.slug %}">
+                <small>🖊</small>
+              </a>
+              </p>
+
+              {% endif %}       
+
+                <h1 class="h1 text-center">{{ article.title }}</h1> 
+
                 <br>
 
                 <p>{{ article.body|safe }}</p>
