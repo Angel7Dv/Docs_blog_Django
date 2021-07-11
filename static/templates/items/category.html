@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ category.name }}{% endblock %}
+{% block title %}Notas de {{ category.name }}{% endblock %}
 
 
 {% block content %}
@@ -73,14 +73,7 @@
                       <a class="text- text-success" href="{% url 'article' category.slug art.slug %}"><small>{{art.ordering}}.-</small>{{ art.title }}</a>
                       
 
-
-                      <!-- EDIT ARTICLE -->
-                      {% if user.is_authenticated %}
-                      <a class="" href="{% url 'edit_article' art.slug %}">
-                        <small>🖊</small>
-                      </a>
-                      {% endif %}                      
-                      <!-- EDIT ARTICLE -->          
+      
                     </li>
 
 
@@ -153,9 +146,9 @@
 
             {% for articulo in tema.articles.all %}
 
-                  <div class="col-4">
-                    <div class="card" style="width: 18rem;">
-                      <h5 class="card-head p-3">{{ articulo.title }}</h5>                        
+                  <div class="col-3">
+                    <div class="card m-4 pb-3" style="width: 18rem;">
+                      <h5 class="card-head">{{ articulo.title }}</h5>                        
 
                       <div class="card-fotter">
                         <a class="text-success" href="{% url 'article' category.slug articulo.slug %}" class="card-link">ver mas</a>

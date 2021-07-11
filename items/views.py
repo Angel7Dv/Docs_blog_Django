@@ -4,7 +4,7 @@ from .models import Category, Tema, Article
 
 def categories(request, slug):
     category = get_object_or_404(Category, slug=slug)
-    temas = category.temas.all().order_by('ordering')
+    temas = category.temas.all()
     
 
     #cosita = temas[0].articles #forma de sacarle los articulos
@@ -24,7 +24,7 @@ def categories(request, slug):
 def article(request,category_slug, slug):
     article = get_object_or_404(Article, slug=slug)
     category = get_object_or_404(Category, slug=category_slug)
-    temas = category.temas.all().order_by('ordering')
+    temas = category.temas.all()
     
     #article.tema = tema actual
     #temas[0].articles.all() todos los articulos del tema0

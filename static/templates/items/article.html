@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ category.name }}{% endblock %}
+{% block title %}Notas de {{ category.name }}{% endblock %}
 
 
 {% block content %}
@@ -53,7 +53,7 @@
 
                       <!-- EDIT TEMA -->
                       {% if user.is_authenticated %}
-                      <a href="{% url 'edit_tema' i.slug %}">
+                      <a target="_blank" href="{% url 'edit_tema' i.slug %}">
                         <small>🖊</small>
                       </a>
                       {% endif %}
@@ -74,7 +74,7 @@
 
                             <!-- EDIT ARTICLE -->
                             {% if user.is_authenticated %}
-                            <a class="" href="{% url 'edit_article' art.slug %}">
+                            <a target="_blank" class="" href="{% url 'edit_article' art.slug %}">
                               <small>🖊</small>
                             </a>
                             {% endif %}                      

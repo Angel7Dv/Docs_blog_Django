@@ -9,6 +9,9 @@ class Category(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50,null=True, blank=True, unique=True)
     ordering = models.IntegerField(null=True, blank=True)
+    
+    class Meta:
+        ordering = ['ordering']
 
     def save(self, *args, **kwargs):    #luego agregamos esta funcion a la clase para que se agrege el titulo como slug
         self.slug = slugify(self.name)
@@ -21,7 +24,10 @@ class Tema(models.Model):
     category = models.ForeignKey(Category, related_name='temas', on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50,null=True, blank=True)
-    ordering = models.IntegerField(null=True, blank=True)
+    ordering= models.IntegerField(null=True, blank=True)
+
+    class Meta:
+        ordering = ['ordering']
 
     def save(self, *args, **kwargs):    #luego agregamos esta funcion a la clase para que se agrege el titulo como slug
         self.slug = slugify(self.name)
@@ -38,6 +44,9 @@ class Article(models.Model):
     ordering = models.IntegerField(null=True, blank=True,)
 
     body = models.TextField(blank=True, null=True)
+
+    class Meta:
+        ordering = ['ordering']
 
     def save(self, *args, **kwargs):    #luego agregamos esta funcion a la clase para que se agrege el titulo como slug
         self.slug = slugify(self.title)

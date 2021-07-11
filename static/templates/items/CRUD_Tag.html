@@ -39,16 +39,22 @@
                         {{form.ordering.label_tag}} : {{form.ordering}}
                     </p>
 
+                    {% if form.category %}
+                    <p>
+                        {{form.category.label_tag}} : {{form.category}}
+                    </p>
+                    {% endif %}
+
+                    {% if form.tema %}
                     <p>
                         {{form.tema.label_tag}} : {{form.tema}}
                     </p>
-                    
+                    {% endif %}
                     
                     {% if form.title %}
                         <p>
                             {{form.title.label_tag}} : {{form.title}}
                         </p>
-
                         
                         <p><label for="id_body">Contenido:</label>            </p>                    
                             <textarea name="body" class="summernote" id="id_body" cols="90" rows="50">{{objeto.body}}</textarea>
